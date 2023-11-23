@@ -6,6 +6,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aaliezl.master.tetris.logic.Spirit.Companion.Empty
+import com.aaliezl.master.tetris.logic.untils.Direction
+import com.aaliezl.master.tetris.logic.untils.ScoreEverySpirit
+import com.aaliezl.master.tetris.logic.untils.SoundType
+import com.aaliezl.master.tetris.logic.untils.SoundUtil
+import com.aaliezl.master.tetris.logic.untils.calculateScore
+import com.aaliezl.master.tetris.logic.untils.toOffset
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

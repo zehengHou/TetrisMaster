@@ -45,7 +45,7 @@ import com.aaliezl.master.tetris.R
 import com.aaliezl.master.tetris.logic.Brick
 import com.aaliezl.master.tetris.logic.GameStatus
 import com.aaliezl.master.tetris.logic.GameViewModel
-import com.aaliezl.master.tetris.logic.NextMatrix
+import com.aaliezl.master.tetris.logic.untils.NextMatrix
 import com.aaliezl.master.tetris.logic.Spirit
 import com.aaliezl.master.tetris.logic.SpiritType
 import com.aaliezl.master.tetris.ui.theme.BrickMatrix

@@ -1,8 +1,7 @@
-package com.aaliezl.master.tetris.logic.ext
+package com.aaliezl.master.tetris.logic.untils
 
 import android.app.Activity
 import android.graphics.Color
-import android.util.Log
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
@@ -39,7 +38,7 @@ fun Activity.updateNavContainerTopMargin() {
     ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { _, insets ->
         // Get the insets for the status bar
         val statusBarHeight = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-        Log.i(TAG, "statusBarHeight = $statusBarHeight")
+        logInfo(TAG, "statusBarHeight = $statusBarHeight")
         insets
     }
 }
