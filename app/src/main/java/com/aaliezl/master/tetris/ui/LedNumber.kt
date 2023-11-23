@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.aaliezl.master.tetris.logic.LedFontFamily
+import com.aaliezl.master.tetris.logic.untils.LedFontFamily
 import com.aaliezl.master.tetris.ui.theme.BrickMatrix
 import com.aaliezl.master.tetris.ui.theme.BrickSpirit
 import java.text.DateFormat
@@ -57,6 +57,7 @@ fun LedClock(modifier: Modifier = Modifier) {
     Row(modifier) {
         LedNumber(num = clock.first, digits = 2, fillZero = true)
 
+        @Suppress("LocalVariableName")
         val LedComma: @Composable (color: Color) -> Unit = remember {
             {
                 Text(
@@ -75,12 +76,10 @@ fun LedClock(modifier: Modifier = Modifier) {
                 .width(6.dp)
                 .padding(end = 1.dp),
         ) {
-
             LedComma(BrickMatrix)
             if (animateValue.roundToInt() == 1) {
                 LedComma(BrickSpirit)
             }
-
         }
 
         LedNumber(num = clock.second, digits = 2, fillZero = true)
@@ -107,7 +106,6 @@ fun LedNumber(
                     fontFamily = LedFontFamily,
                     modifier = Modifier.width(textWidth),
                     textAlign = TextAlign.End
-
                 )
             }
 

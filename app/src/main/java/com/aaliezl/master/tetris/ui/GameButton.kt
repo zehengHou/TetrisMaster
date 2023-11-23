@@ -1,3 +1,5 @@
+@file:OptIn(ObsoleteCoroutinesApi::class)
+
 package com.aaliezl.master.tetris.ui
 
 import android.view.MotionEvent.*
@@ -26,11 +28,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.aaliezl.master.tetris.ui.theme.Purple200
 import com.aaliezl.master.tetris.ui.theme.Purple500
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.ticker
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -80,7 +82,6 @@ fun GameButton(
                                     pressedInteraction.value = interaction
                                 }
 
-
                                 ticker = ticker(initialDelayMillis = 300, delayMillis = 60)
                                 coroutineScope.launch {
                                     ticker
@@ -91,8 +92,8 @@ fun GameButton(
 
                             ACTION_CANCEL, ACTION_UP -> {
                                 coroutineScope.launch {
-                                    pressedInteraction.value?.let {
-                                        val interaction = PressInteraction.Cancel(it)
+                                    pressedInteraction.value?.let { press ->
+                                        val interaction = PressInteraction.Cancel(press)
                                         interactionSource.emit(interaction)
                                         pressedInteraction.value = null
                                     }

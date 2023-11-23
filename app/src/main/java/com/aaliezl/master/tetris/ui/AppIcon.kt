@@ -28,7 +28,6 @@ import com.aaliezl.master.tetris.ui.theme.ScreenBackground
 
 @Composable
 private fun AppIcon() {
-
     Column(
         Modifier
             .fillMaxSize()
@@ -39,7 +38,6 @@ private fun AppIcon() {
 
         //Screen
         Box(Modifier.align(Alignment.CenterHorizontally)) {
-
             Box(
                 Modifier
                     .align(Alignment.Center)
@@ -73,7 +71,6 @@ private fun AppIcon() {
             }
         }
 
-
         Row(
             modifier = Modifier
                 .padding(start = 45.dp, end = 45.dp)
@@ -102,9 +99,7 @@ private fun AppIcon() {
                     Modifier.align(Alignment.BottomCenter),
                     size = DirectionButtonSize
                 )
-
             }
-
 
             //ROTATE BTN
             Box(
@@ -118,7 +113,6 @@ private fun AppIcon() {
                 )
             }
         }
-
     }
 }
 

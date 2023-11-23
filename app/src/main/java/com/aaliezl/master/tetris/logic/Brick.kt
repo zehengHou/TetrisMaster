@@ -2,6 +2,9 @@ package com.aaliezl.master.tetris.logic
 
 import androidx.compose.ui.geometry.Offset
 
+/**
+ * 方块
+ */
 data class Brick(val location: Offset = Offset.Zero) {
 
     companion object {

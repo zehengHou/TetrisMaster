@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aaliezl.master.tetris.R
-import com.aaliezl.master.tetris.logic.Direction
+import com.aaliezl.master.tetris.logic.untils.Direction
 import com.aaliezl.master.tetris.ui.theme.BodyColor
 import com.aaliezl.master.tetris.ui.theme.ScreenBackground
 
@@ -49,7 +49,6 @@ fun GameBody(
 
         //Screen
         Box(Modifier.align(Alignment.CenterHorizontally)) {
-
 
             Box(
                 modifier = Modifier
@@ -107,6 +106,7 @@ fun GameBody(
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        @Suppress("LocalVariableName")
         val SettingText = @Composable { text: String, modifier: Modifier ->
             Text(
                 text, modifier = modifier,
@@ -115,7 +115,6 @@ fun GameBody(
                 textAlign = TextAlign.Center
             )
         }
-
 
         //Setting Button
         Column(
@@ -160,11 +159,10 @@ fun GameBody(
             }
         }
 
-
         Spacer(modifier = Modifier.height(30.dp))
 
-
         //Game Button
+        @Suppress("LocalVariableName")
         val ButtonText = @Composable {
                 modifier: Modifier,
                 text: String,
@@ -221,7 +219,6 @@ fun GameBody(
                 }
 
             }
-
 
             //ROTATE BTN
             Box(
@@ -300,13 +297,11 @@ fun combinedClickable(
     onMute: () -> Unit = {},
 ) = Clickable(onMove, onRotate, onRestart, onPause, onMute)
 
-
 @Preview(widthDp = 400, heightDp = 700)
 @Composable
 fun PreviewGameBody() {
     GameBody {}
 }
-
 
 val DirectionButtonSize = 60.dp
 val RotateButtonSize = 90.dp

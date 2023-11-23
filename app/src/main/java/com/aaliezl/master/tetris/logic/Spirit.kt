@@ -1,6 +1,7 @@
 package com.aaliezl.master.tetris.logic
 
 import androidx.compose.ui.geometry.Offset
+import com.aaliezl.master.tetris.logic.untils.Offset
 import kotlin.math.absoluteValue
 import kotlin.random.Random
 

@@ -13,10 +13,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.*
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.aaliezl.master.tetris.logic.Action
-import com.aaliezl.master.tetris.logic.Direction
+import com.aaliezl.master.tetris.logic.untils.Direction
 import com.aaliezl.master.tetris.logic.GameViewModel
-import com.aaliezl.master.tetris.logic.SoundUtil
-import com.aaliezl.master.tetris.logic.ext.immersiveStatusBar
+import com.aaliezl.master.tetris.logic.untils.SoundUtil
+import com.aaliezl.master.tetris.logic.untils.immersiveStatusBar
 import com.aaliezl.master.tetris.ui.GameBody
 import com.aaliezl.master.tetris.ui.GameScreen
 import com.aaliezl.master.tetris.ui.PreviewGameScreen
@@ -31,7 +31,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         immersiveStatusBar()
-        SoundUtil.init(this)
 
         setContent {
             TetrisMasterTheme {
@@ -65,28 +64,30 @@ class MainActivity : ComponentActivity() {
                         }
                     }
 
-                    GameBody(combinedClickable(
-                        onMove = { direction: Direction ->
-                            if (direction == Direction.Up) viewModel.dispatch(Action.Drop)
-                            else viewModel.dispatch(Action.Move(direction))
-                        },
-                        onRotate = {
-                            viewModel.dispatch(Action.Rotate)
-                        },
-                        onRestart = {
-                            viewModel.dispatch(Action.Reset)
-                        },
-                        onPause = {
-                            if (viewModel.viewState.value.isRunning) {
-                                viewModel.dispatch(Action.Pause)
-                            } else {
-                                viewModel.dispatch(Action.Resume)
+                    GameBody(
+                        combinedClickable(
+                            onMove = { direction: Direction ->
+                                if (direction == Direction.Up) viewModel.dispatch(Action.Drop)
+                                else viewModel.dispatch(Action.Move(direction))
+                            },
+                            onRotate = {
+                                viewModel.dispatch(Action.Rotate)
+                            },
+                            onRestart = {
+                                viewModel.dispatch(Action.Reset)
+                            },
+                            onPause = {
+                                if (viewModel.viewState.value.isRunning) {
+                                    viewModel.dispatch(Action.Pause)
+                                } else {
+                                    viewModel.dispatch(Action.Resume)
+                                }
+                            },
+                            onMute = {
+                                viewModel.dispatch(Action.Mute)
                             }
-                        },
-                        onMute = {
-                            viewModel.dispatch(Action.Mute)
-                        }
-                    )) {
+                        )
+                    ) {
                         GameScreen(
                             Modifier.fillMaxSize()
                         )
