@@ -228,7 +228,6 @@ class GameViewModel : ViewModel() {
                 //clear line and then offset brick
                 cleared = cleared.filter { it.location.y != line }
                     .map { if (it.location.y < line) it.offsetBy(0 to 1) else it }
-
             }
 
         return Triple(bricks, clearing, cleared) to clearLines.size

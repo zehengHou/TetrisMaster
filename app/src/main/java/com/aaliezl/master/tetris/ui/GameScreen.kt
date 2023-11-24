@@ -111,7 +111,6 @@ fun GameScreen(modifier: Modifier = Modifier) {
     }
 }
 
-
 @Composable
 fun GameScoreboard(
     modifier: Modifier = Modifier,
@@ -185,7 +184,6 @@ fun GameScoreboard(
     }
 }
 
-
 private fun DrawScope.drawText(
     gameStatus: GameStatus,
     brickSize: Float,
@@ -235,7 +233,6 @@ private fun DrawScope.drawMatrix(brickSize: Float, matrix: Pair<Int, Int>) {
 }
 
 private fun DrawScope.drawMatrixBorder(brickSize: Float, matrix: Pair<Int, Int>) {
-
     val gap = matrix.first * brickSize * 0.05f
     drawRect(
         Color.Black,
@@ -249,7 +246,6 @@ private fun DrawScope.drawMatrixBorder(brickSize: Float, matrix: Pair<Int, Int>)
         ),
         style = Stroke(1.dp.toPx())
     )
-
 }
 
 private fun DrawScope.drawBricks(brick: List<Brick>, brickSize: Float, matrix: Pair<Int, Int>) {
@@ -309,16 +305,12 @@ private fun DrawScope.drawBrick(
         actualLocation + Offset(innerOffset, innerOffset),
         size = Size(innerSize, innerSize)
     )
-
 }
-
 
 @Preview
 @Composable
 fun PreviewGameScreen(
-    modifier: Modifier = Modifier
-        .width(260.dp)
-        .height(300.dp),
+    modifier: Modifier = Modifier,
 ) {
 
     Box(
@@ -350,10 +342,7 @@ fun PreviewGameScreen(
             score = 1204,
             line = 12
         )
-
     }
-
-
 }
 
 @Preview
@@ -383,7 +372,5 @@ fun PreviewSpiritType() {
                 )
             }
         }
-
     }
-
 }

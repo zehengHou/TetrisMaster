@@ -16,19 +16,21 @@ import com.aaliezl.master.tetris.logic.Action
 import com.aaliezl.master.tetris.logic.Direction
 import com.aaliezl.master.tetris.logic.GameViewModel
 import com.aaliezl.master.tetris.logic.SoundUtil
-import com.aaliezl.master.tetris.logic.StatusBarUtil
+import com.aaliezl.master.tetris.logic.ext.immersiveStatusBar
 import com.aaliezl.master.tetris.ui.GameBody
 import com.aaliezl.master.tetris.ui.GameScreen
 import com.aaliezl.master.tetris.ui.PreviewGameScreen
 import com.aaliezl.master.tetris.ui.combinedClickable
 import com.aaliezl.master.tetris.ui.theme.TetrisMasterTheme
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 
+@OptIn(ObsoleteCoroutinesApi::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        StatusBarUtil.transparentStatusBar(this)
+        immersiveStatusBar()
         SoundUtil.init(this)
 
         setContent {
